@@ -23,6 +23,12 @@
   background: white;
   font-size: 8px;
 }
+.keyboard-key-black {
+  box-sizing: border-box;
+  border: 2px solid black;
+  background: black;
+  font-size: 8px;
+}
 
 /* .keyboard-key-c0 {
   grid-column-start: 1;
