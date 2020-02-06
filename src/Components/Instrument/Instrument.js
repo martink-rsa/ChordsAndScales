@@ -1,10 +1,10 @@
 import React from 'react';
 import Keyboard from '../Keyboard/Keyboard';
 
-function Instrument() {
+function Instrument(props) {
   return (
     <div>
-      <Keyboard />
+      <Keyboard template={props.template} />
     </div>
   );
 }

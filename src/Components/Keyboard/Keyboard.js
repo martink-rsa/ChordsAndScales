@@ -9,6 +9,8 @@ function Keyboard(props) {
   //  1 3   6 8 10   14 16    19 21 23
   // 0 2 4 5 7 9 11 13 15 17 18 20 22 24 25
   const generateKeys = (totalColumns, totalKeys, template) => {
+    console.log('generateKeys');
+    console.log(template);
     // Previously had cleaner code by basing everything off a number of
     //    of normal keys and just looping through this number, then adding
     //    a black key if it's part of the keysBlack array. Black keys did not
@@ -33,7 +35,7 @@ function Keyboard(props) {
           gridRowEnd: 3,
           style: 'normal',
           zIndex: 1,
-          keyClass: 'keyboard-key-normal'
+          keyClass: 'keyboard-key-normal',
         });
         keysNormalCounter += 1;
       } else {
@@ -56,7 +58,7 @@ function Keyboard(props) {
           gridRowEnd: 2,
           style: 'black',
           zIndex: 2,
-          keyClass: 'keyboard-key-black'
+          keyClass: 'keyboard-key-black',
         });
       }
     }
@@ -77,7 +79,7 @@ function Keyboard(props) {
   return (
     <div className="keyboard-wrapper">
       <div className="keyboard-container">
-        {generateKeys(75, 25, scaleDMaj).map(key => {
+        {generateKeys(75, 25, props.template).map(key => {
           return (
             <div
               key={`key-normal-${key.id}`}
@@ -87,7 +89,7 @@ function Keyboard(props) {
                 gridColumnEnd: key.gridColumnEnd,
                 gridRowStart: key.gridRowStart,
                 gridRowEnd: key.gridRowEnd,
-                zIndex: key.zIndex
+                zIndex: key.zIndex,
               }}
             >
               {key.id}

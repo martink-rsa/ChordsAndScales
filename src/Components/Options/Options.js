@@ -2,10 +2,14 @@ import React from 'react';
 import ScaleOptions from '../ScaleOptions/ScaleOptions';
 
 function Options(props) {
-  const { userOptions, setUserOptions } = props;
+  const { userOptions, setUserOptions, setScale } = props;
   return (
     <div>
-      <ScaleOptions userOptions={userOptions} setUserOptions={setUserOptions} />
+      <ScaleOptions
+        userOptions={userOptions}
+        setUserOptions={setUserOptions}
+        setScale={setScale}
+      />
     </div>
   );
 }
