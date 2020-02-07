@@ -10,7 +10,7 @@ describe('Get the correct Major Scales', () => {
       7,
       9,
       11,
-      12,
+      12
     ]);
   });
   test('Gets the correct C# major scale', () => {
@@ -22,7 +22,7 @@ describe('Get the correct Major Scales', () => {
       8,
       10,
       12,
-      13,
+      13
     ]);
   });
   test('Gets the correct D major scale', () => {
@@ -34,7 +34,7 @@ describe('Get the correct Major Scales', () => {
       9,
       11,
       13,
-      14,
+      14
     ]);
   });
   test('Gets the correct D# major scale', () => {
@@ -46,7 +46,7 @@ describe('Get the correct Major Scales', () => {
       10,
       12,
       14,
-      15,
+      15
     ]);
   });
   test('Gets the correct E major scale', () => {
@@ -58,7 +58,7 @@ describe('Get the correct Major Scales', () => {
       11,
       13,
       15,
-      16,
+      16
     ]);
   });
   test('Gets the correct F major scale', () => {
@@ -70,7 +70,7 @@ describe('Get the correct Major Scales', () => {
       12,
       14,
       16,
-      17,
+      17
     ]);
   });
   test('Gets the correct Fs major scale', () => {
@@ -82,7 +82,7 @@ describe('Get the correct Major Scales', () => {
       13,
       15,
       17,
-      18,
+      18
     ]);
   });
   test('Gets the correct G major scale', () => {
@@ -94,7 +94,7 @@ describe('Get the correct Major Scales', () => {
       14,
       16,
       18,
-      19,
+      19
     ]);
   });
   test('Gets the correct Gs major scale', () => {
@@ -106,7 +106,7 @@ describe('Get the correct Major Scales', () => {
       15,
       17,
       19,
-      20,
+      20
     ]);
   });
   test('Gets the correct A major scale', () => {
@@ -118,7 +118,7 @@ describe('Get the correct Major Scales', () => {
       16,
       18,
       20,
-      21,
+      21
     ]);
   });
   test('Gets the correct As major scale', () => {
@@ -130,7 +130,7 @@ describe('Get the correct Major Scales', () => {
       17,
       19,
       21,
-      22,
+      22
     ]);
   });
   test('Gets the correct B major scale', () => {
@@ -142,7 +142,7 @@ describe('Get the correct Major Scales', () => {
       18,
       20,
       22,
-      23,
+      23
     ]);
   });
 });
@@ -158,7 +158,7 @@ describe('Get the correct Minor Scales', () => {
       7,
       8,
       10,
-      12,
+      12
     ]);
   });
   test('Gets the correct base E Minor scale', () => {
@@ -170,7 +170,7 @@ describe('Get the correct Minor Scales', () => {
       11,
       12,
       14,
-      16,
+      16
     ]);
   });
   test('Gets the correct base F# Minor scale', () => {
@@ -182,7 +182,7 @@ describe('Get the correct Minor Scales', () => {
       13,
       14,
       16,
-      18,
+      18
     ]);
   });
 });
@@ -197,7 +197,7 @@ describe('Get the correct Blues Minor Scales', () => {
       6,
       7,
       10,
-      12,
+      12
     ]);
   });
   test('Gets the correct E Blues Minor scale', () => {
@@ -208,7 +208,7 @@ describe('Get the correct Blues Minor Scales', () => {
       10,
       11,
       14,
-      16,
+      16
     ]);
   });
   test('Gets the correct G# Blues Minor scale', () => {
@@ -219,7 +219,7 @@ describe('Get the correct Blues Minor Scales', () => {
       14,
       15,
       18,
-      20,
+      20
     ]);
   });
 });
@@ -234,7 +234,7 @@ describe('Get the correct Blues Major Scales', () => {
       4,
       7,
       9,
-      12,
+      12
     ]);
   });
   test('Gets the correct D# Blues Major scale', () => {
@@ -245,7 +245,7 @@ describe('Get the correct Blues Major Scales', () => {
       7,
       10,
       12,
-      15,
+      15
     ]);
   });
   test('Gets the correct F# Blues Major scale', () => {
@@ -256,7 +256,7 @@ describe('Get the correct Blues Major Scales', () => {
       10,
       13,
       15,
-      18,
+      18
     ]);
   });
 });
@@ -273,7 +273,7 @@ describe('Get the correct Bepop Major Scales', () => {
       8,
       9,
       11,
-      12,
+      12
     ]);
   });
   test('Gets the correct E Bepop Major scale', () => {
@@ -286,7 +286,203 @@ describe('Get the correct Bepop Major Scales', () => {
       12,
       13,
       15,
-      16,
+      16
+    ]);
+  });
+});
+
+// Bepop Minor
+describe('Get the correct Bepop Minor Scales', () => {
+  test('Gets the correct C Bepop Minor scale', () => {
+    expect(getScale({ key: 'C', scale: 'bepopMin' })).toStrictEqual([
+      0,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      10,
+      12
+    ]);
+  });
+  test('Gets the correct D# Bepop Minor scale', () => {
+    expect(getScale({ key: 'Ds', scale: 'bepopMin' })).toStrictEqual([
+      2,
+      4,
+      5,
+      6,
+      7,
+      9,
+      11,
+      12,
+      14
+    ]);
+  });
+});
+
+// Bepop Minor
+describe('Get the correct Bepop Minor Scales', () => {
+  test('Gets the correct C Bepop Minor scale', () => {
+    expect(getScale({ key: 'C', scale: 'bepopMin' })).toStrictEqual([
+      0,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      10,
+      12
+    ]);
+  });
+  test('Gets the correct D# Bepop Minor scale', () => {
+    expect(getScale({ key: 'Ds', scale: 'bepopMin' })).toStrictEqual([
+      2,
+      4,
+      5,
+      6,
+      7,
+      9,
+      11,
+      12,
+      14
+    ]);
+  });
+});
+
+// Modes
+describe('Get the correct Modes', () => {
+  test('Gets the correct C Ionian Mode', () => {
+    expect(getScale({ key: 'C', scale: 'ionian' })).toStrictEqual([
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11,
+      12
+    ]);
+  });
+  test('Gets the correct C Dorian mode', () => {
+    expect(getScale({ key: 'C', scale: 'dorian' })).toStrictEqual([
+      0,
+      2,
+      3,
+      5,
+      7,
+      9,
+      10,
+      12
+    ]);
+  });
+  test('Gets the correct C Phrygian mode', () => {
+    expect(getScale({ key: 'C', scale: 'phrygian' })).toStrictEqual([
+      0,
+      1,
+      3,
+      5,
+      7,
+      8,
+      10,
+      12
+    ]);
+  });
+  test('Gets the correct C Lydian mode', () => {
+    expect(getScale({ key: 'C', scale: 'lydian' })).toStrictEqual([
+      0,
+      2,
+      4,
+      6,
+      7,
+      9,
+      11,
+      12
+    ]);
+  });
+  test('Gets the correct C Mixolydian mode', () => {
+    expect(getScale({ key: 'C', scale: 'mixolydian' })).toStrictEqual([
+      0,
+      2,
+      4,
+      6,
+      7,
+      9,
+      10,
+      12
+    ]);
+  });
+  test('Gets the correct C Aeolian mode', () => {
+    expect(getScale({ key: 'C', scale: 'aeolian' })).toStrictEqual([
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10,
+      12
+    ]);
+  });
+  test('Gets the correct C Locrian mode', () => {
+    expect(getScale({ key: 'C', scale: 'locrian' })).toStrictEqual([
+      0,
+      1,
+      3,
+      5,
+      6,
+      8,
+      10,
+      12
+    ]);
+  });
+});
+
+// Pentatonic scales (Major)
+describe('Get the correct Major Pentatonic scales', () => {
+  test('Gets the correct C Major Pentatonic scale', () => {
+    expect(getScale({ key: 'C', scale: 'pentatonicMaj' })).toStrictEqual([
+      0,
+      2,
+      4,
+      7,
+      9,
+      12
+    ]);
+  });
+  test('Gets the correct D# Major Pentatonic scale', () => {
+    expect(getScale({ key: 'Ds', scale: 'pentatonicMaj' })).toStrictEqual([
+      3,
+      5,
+      7,
+      10,
+      12,
+      15
+    ]);
+  });
+});
+
+// Pentatonic scales (Minor)
+describe('Get the correct Minor Pentatonic scales', () => {
+  test('Gets the correct C Minor Pentatonic scale', () => {
+    expect(getScale({ key: 'C', scale: 'pentatonicMin' })).toStrictEqual([
+      0,
+      3,
+      5,
+      7,
+      10,
+      12
+    ]);
+  });
+  test('Gets the correct D# Minor Pentatonic scale', () => {
+    expect(getScale({ key: 'F', scale: 'pentatonicMin' })).toStrictEqual([
+      5,
+      8,
+      10,
+      12,
+      15,
+      17
     ]);
   });
 });
