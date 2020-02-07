@@ -144,7 +144,6 @@ function ChordsAndScales() {
       template = musicalScales[musicalKey][musicalScale];
     } else if (userOptions.chordScaleChoice === 'chord') {
     }
-    console.log(template);
     return template;
   };
 

@@ -9,8 +9,6 @@ function Keyboard(props) {
   //  1 3   6 8 10   14 16    19 21 23
   // 0 2 4 5 7 9 11 13 15 17 18 20 22 24 25
   const generateKeys = (totalColumns, totalKeys, template) => {
-    console.log('generateKeys');
-    console.log(template);
     // Previously had cleaner code by basing everything off a number of
     //    of normal keys and just looping through this number, then adding
     //    a black key if it's part of the keysBlack array. Black keys did not
