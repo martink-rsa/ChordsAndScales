@@ -2,9 +2,6 @@ import React from 'react';
 import './Keyboard.css';
 
 function Keyboard(props) {
-  // Temporary template;
-  const scaleDMaj = [2, 4, 6, 7, 9, 11, 13, 14];
-
   // Keyboard index layout
   //  1 3   6 8 10   14 16    19 21 23
   // 0 2 4 5 7 9 11 13 15 17 18 20 22 24 25

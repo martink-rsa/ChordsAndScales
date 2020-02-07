@@ -1,12 +1,16 @@
-/* eslint-disable arrow-parens */
+const getChord = chordInput => {
+  // Return chord
+  return [];
+};
+
 // Return the a musical scale of musical notes
-const getScale = scaleInput => {
-  const scaleMaj = [0, 2, 4, 5, 7, 9, 11, 12]; // C Major
-  const scaleMin = [0, 2, 3, 5, 7, 8, 10, 12]; // C Minor
-  const scaleBluesMin = [0, 3, 5, 6, 7, 10, 12]; // C Blues Minor
-  const scaleBluesMaj = [0, 2, 3, 4, 7, 9, 12]; // C Blues Major
-  const scaleBepopMaj = [0, 2, 4, 5, 7, 8, 9, 11, 12]; // C Bepop Major
-  const scaleBepopMin = [0, 2, 3, 4, 5, 7, 9, 10, 12]; // C Bepop Minor
+const getScale = ({ musicalKey, musicalScale }) => {
+  const scaleMaj = [0, 2, 4, 5, 7, 9, 11, 12];
+  const scaleMin = [0, 2, 3, 5, 7, 8, 10, 12];
+  const scaleBluesMin = [0, 3, 5, 6, 7, 10, 12];
+  const scaleBluesMaj = [0, 2, 3, 4, 7, 9, 12];
+  const scaleBepopMaj = [0, 2, 4, 5, 7, 8, 9, 11, 12];
+  const scaleBepopMin = [0, 2, 3, 4, 5, 7, 9, 10, 12];
   const scalePentatonicMaj = [0, 2, 4, 7, 9, 12];
   const scalePentatonicMin = [0, 3, 5, 7, 10, 12];
   const scaleIonian = [0, 2, 4, 5, 7, 9, 11, 12];
@@ -16,7 +20,6 @@ const getScale = scaleInput => {
   const scaleMixolydian = [0, 2, 4, 5, 7, 9, 10, 12];
   const scaleAeolian = [0, 2, 3, 5, 7, 8, 10, 12];
   const scaleLocrian = [0, 1, 3, 5, 6, 8, 10, 12];
-  const { key, scale } = scaleInput;
   const intervals = {
     C: 0,
     Cs: 1,
@@ -33,57 +36,81 @@ const getScale = scaleInput => {
   };
 
   let scaleOutput;
-  switch (scale) {
+  switch (musicalScale) {
     case 'maj':
-      scaleOutput = scaleMaj.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleMaj.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'min':
-      scaleOutput = scaleMin.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleMin.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'bluesMin':
-      scaleOutput = scaleBluesMin.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleBluesMin.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'bluesMaj':
-      scaleOutput = scaleBluesMaj.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleBluesMaj.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'bepopMaj':
-      scaleOutput = scaleBepopMaj.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleBepopMaj.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'bepopMin':
-      scaleOutput = scaleBepopMin.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleBepopMin.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'pentatonicMaj':
       scaleOutput = scalePentatonicMaj.map(
-        noteIndex => noteIndex + intervals[key],
+        noteIndex => noteIndex + intervals[musicalKey],
       );
       break;
     case 'pentatonicMin':
       scaleOutput = scalePentatonicMin.map(
-        noteIndex => noteIndex + intervals[key],
+        noteIndex => noteIndex + intervals[musicalKey],
       );
       break;
     case 'ionian':
-      scaleOutput = scaleIonian.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleIonian.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'dorian':
-      scaleOutput = scaleDorian.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleDorian.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'phrygian':
-      scaleOutput = scalePhrygian.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scalePhrygian.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'lydian':
-      scaleOutput = scaleLydian.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleLydian.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'mixolydian':
       scaleOutput = scaleMixolydian.map(
-        noteIndex => noteIndex + intervals[key],
+        noteIndex => noteIndex + intervals[musicalKey],
       );
       break;
     case 'aeolian':
-      scaleOutput = scaleAeolian.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleAeolian.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     case 'locrian':
-      scaleOutput = scaleLocrian.map(noteIndex => noteIndex + intervals[key]);
+      scaleOutput = scaleLocrian.map(
+        noteIndex => noteIndex + intervals[musicalKey],
+      );
       break;
     default:
       throw new Error('Scale not found');
@@ -91,4 +118,4 @@ const getScale = scaleInput => {
   return scaleOutput;
 };
 
-export { getScale };
+export { getChord, getScale };
