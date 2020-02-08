@@ -1,15 +1,44 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import ScaleOptions from '../ScaleOptions/ScaleOptions';
+import ChordOptions from '../ChordOptions/ChordOptions';
 
 function Options(props) {
-  const { userOptions, setUserOptions, setScale } = props;
+  const { userOptions, setUserOptions, setScale, musicalKeysAvailable } = props;
+
+  const changeOptions = optionSelected => {
+    setUserOptions(prevState => ({
+      ...prevState,
+      optionSelected,
+    }));
+  };
   return (
     <div>
-      <ScaleOptions
-        userOptions={userOptions}
-        setUserOptions={setUserOptions}
-        setScale={setScale}
-      />
+      {userOptions.optionSelected === 'chord' ? (
+        <ButtonGroup color="primary" aria-label="outlined primary button group">
+          <Button disabled>Chords</Button>
+          <Button onClick={() => changeOptions('scale')}>Scales</Button>
+        </ButtonGroup>
+      ) : (
+        <ButtonGroup color="primary" aria-label="outlined primary button group">
+          <Button onClick={() => changeOptions('chord')}>Chords</Button>
+          <Button disabled>Scales</Button>
+        </ButtonGroup>
+      )}
+      {userOptions.optionSelected === 'scale' ? (
+        <ScaleOptions
+          userOptions={userOptions}
+          setUserOptions={setUserOptions}
+          musicalKeysAvailable={musicalKeysAvailable}
+        />
+      ) : (
+        <ChordOptions
+          userOptions={userOptions}
+          setUserOptions={setUserOptions}
+          musicalKeysAvailable={musicalKeysAvailable}
+        />
+      )}
     </div>
   );
 }

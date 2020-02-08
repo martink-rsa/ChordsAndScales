@@ -1,23 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import SelectControl from '../SelectControl/SelectControl';
 
-const useStyles = makeStyles(theme => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
-
 function ScaleOptions(props) {
-  const classes = useStyles();
   const { setUserOptions } = props;
   const { musicalKey, musicalScale } = props.userOptions;
 
@@ -34,21 +18,6 @@ function ScaleOptions(props) {
       musicalScale: event.target.value,
     }));
   };
-
-  const musicalKeysAvailable = [
-    { id: 0, value: 'C', text: 'C' },
-    { id: 1, value: 'Cs', text: 'C♯ / D♭' },
-    { id: 2, value: 'D', text: 'D' },
-    { id: 3, value: 'Ds', text: 'D♯ / E♭' },
-    { id: 4, value: 'E', text: 'E' },
-    { id: 5, value: 'F', text: 'F' },
-    { id: 6, value: 'Fs', text: 'F♯ / G♭' },
-    { id: 7, value: 'G', text: 'G' },
-    { id: 8, value: 'Gs', text: 'G♯ / A♭' },
-    { id: 9, value: 'A', text: 'A' },
-    { id: 10, value: 'As', text: 'A♯ / B♭' },
-    { id: 11, value: 'B', text: 'B' },
-  ];
 
   const musicalScalesAvailable = [
     { id: 0, value: 'maj', text: 'Major' },
@@ -76,7 +45,7 @@ function ScaleOptions(props) {
         keyPrefix="smk" // Scale Musical Key
         handleChange={handleKeyChange}
         currentSelection={musicalKey}
-        selectItems={musicalKeysAvailable}
+        selectItems={props.musicalKeysAvailable}
       />
       <SelectControl
         keyPrefix="sms" // Scale Musical Scale

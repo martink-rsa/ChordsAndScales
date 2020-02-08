@@ -1,9 +1,10 @@
 import React from 'react';
 import Keyboard from '../Keyboard/Keyboard';
+import './instrument.css';
 
 function Instrument(props) {
   return (
-    <div>
+    <div className="wrapper">
       <Keyboard template={props.template} />
     </div>
   );

@@ -6,6 +6,7 @@
   background: black;
   height: 150px;
   width: 100%;
+  max-width: 700px;
   padding: 5px;
 }
 .keyboard-container {
@@ -41,73 +42,10 @@
   box-sizing: border-box;
   border: 2px solid black;
   border-top: none;
-  background: rgb(240, 7, 7);
+  background: rgb(159, 2, 2);
   font-size: 8px;
 }
 .keyboard-key-normal-noborders {
   box-sizing: border-box;
   border: none;
 }
-
-/* .keyboard-key-c0 {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.keyboard-key-d0 {
-  grid-column-start: 5;
-  grid-column-end: 9;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.keyboard-key-e0 {
-  grid-column-start: 9;
-  grid-column-end: 13;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.keyboard-key-e0 {
-  grid-column-start: 16;
-  grid-column-end: 20;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.keyboard-key-f0 {
-  grid-column-start: 21;
-  grid-column-end: 25;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.keyboard-key-g0 {
-  grid-column-start: 26;
-  grid-column-end: 30;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.keyboard-key-a1 {
-  grid-column-start: 31;
-  grid-column-end: 35;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.keyboard-key-b1 {
-  grid-column-start: 36;
-  grid-column-end: 40;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.keyboard-key-c1 {
-  grid-column-start: 41;
-  grid-column-end: 45;
-  grid-row-start: 1;
-  grid-row-end: 3;
-} */
