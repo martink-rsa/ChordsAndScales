@@ -1,5 +1,6 @@
 import React from 'react';
 import './Keyboard.css';
+import KeyboardKey from '../KeyboardKey/KeyboardKey';
 
 function Keyboard(props) {
   // Keyboard index layout
@@ -18,6 +19,9 @@ function Keyboard(props) {
     const amtNormalKeys = totalKeys - keysBlack.length; // No. normal keys
     const widthNormalKey = totalColumns / amtNormalKeys; // Width of normal keys
     let keysNormalCounter = 0; // Used for calculating beginning position
+
+    const templateActive = [2];
+
     for (let i = 0; i < totalKeys; i += 1) {
       if (!keysBlack.includes(i)) {
         const gridColumnStart = keysNormalCounter * widthNormalKey + 1;
@@ -30,7 +34,7 @@ function Keyboard(props) {
           gridRowEnd: 3,
           style: 'normal',
           zIndex: 1,
-          keyClass: 'keyboard-key-normal',
+          keyClass: 'normal',
           note: props.musicalKeysAvailable[i % 12].value,
           octave: Math.floor(i / 12),
         });
@@ -55,7 +59,7 @@ function Keyboard(props) {
           gridRowEnd: 2,
           style: 'black',
           zIndex: 2,
-          keyClass: 'keyboard-key-black',
+          keyClass: 'normal',
           note: props.musicalKeysAvailable[i % 12].value,
           octave: Math.floor(i / 12),
         });
@@ -63,15 +67,16 @@ function Keyboard(props) {
     }
     // Change the template keys to enabled
     for (let i = 0; i < template.length; i += 1) {
-      if (keys[template[i]].style === 'normal') {
-        keys[template[i]].keyClass = 'keyboard-key-normal-enabled';
-      } else {
-        keys[template[i]].keyClass = 'keyboard-key-black-enabled';
-      }
+      keys[template[i]].keyClass = 'enabled';
+    }
+
+    // Change the template keys to active
+    for (let i = 0; i < templateActive.length; i += 1) {
+      keys[template[i]].keyClass = 'active';
     }
     // Set no border on the last key
-    keys[keys.length - 1].keyClass =
-      keys[keys.length - 1].keyClass + ' keyboard-key-normal-noborders';
+    /* keys[keys.length - 1].keyClass =
+      keys[keys.length - 1].keyClass + ' keyboard-key-normal-noborders'; */
     return keys;
   };
 
@@ -79,6 +84,9 @@ function Keyboard(props) {
     <div className="keyboard-wrapper">
       <div className="keyboard-container">
         {generateKeys(75, 25, props.template).map(key => {
+          return <KeyboardKey key={`kbk${key.id}`} details={key} />;
+        })}
+        {/*         {generateKeys(75, 25, props.template).map(key => {
           return (
             <div
               onClick={() =>
@@ -100,7 +108,7 @@ function Keyboard(props) {
               {null}
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );
