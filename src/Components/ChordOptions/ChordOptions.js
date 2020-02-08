@@ -39,12 +39,14 @@ function ChordOptions(props) {
         handleChange={handleKeyChange}
         currentSelection={musicalKey}
         selectItems={props.musicalKeysAvailable}
+        labelText="Key"
       />
       <SelectControl
         keyPrefix="cmc" // Chords Musical Chord
         handleChange={handleChordChange}
         currentSelection={chord}
         selectItems={musicalChordsAvailable}
+        labelText="Chord"
       />
     </div>
   );

@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import ScaleOptions from '../ScaleOptions/ScaleOptions';
 import ChordOptions from '../ChordOptions/ChordOptions';
+import PlayControls from '../PlayControls/PlayControls';
 
 function Options(props) {
   const { userOptions, setUserOptions, setScale, musicalKeysAvailable } = props;
@@ -15,13 +16,14 @@ function Options(props) {
   };
   return (
     <div>
+      <PlayControls />
       {userOptions.optionSelected === 'chord' ? (
-        <ButtonGroup color="primary" aria-label="outlined primary button group">
+        <ButtonGroup color="primary" aria-label="chord options group">
           <Button disabled>Chords</Button>
           <Button onClick={() => changeOptions('scale')}>Scales</Button>
         </ButtonGroup>
       ) : (
-        <ButtonGroup color="primary" aria-label="outlined primary button group">
+        <ButtonGroup color="primary" aria-label="scale options group">
           <Button onClick={() => changeOptions('chord')}>Chords</Button>
           <Button disabled>Scales</Button>
         </ButtonGroup>

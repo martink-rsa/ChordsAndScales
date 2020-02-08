@@ -27,7 +27,7 @@ function SelectControl(props) {
   return (
     <FormControl variant="outlined" className={classes.formControl}>
       <InputLabel ref={inputLabel} id="select-ux-label">
-        Key
+        {props.labelText}
       </InputLabel>
       <Select
         labelId="select-control-label"

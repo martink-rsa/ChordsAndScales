@@ -47,12 +47,14 @@ function ScaleOptions(props) {
         handleChange={handleKeyChange}
         currentSelection={musicalKey}
         selectItems={props.musicalKeysAvailable}
+        labelText="Key"
       />
       <SelectControl
         keyPrefix="sms" // Scale Musical Scale
         handleChange={handleScaleChange}
         currentSelection={musicalScale}
         selectItems={musicalScalesAvailable}
+        labelText="Scale"
       />
     </div>
   );
