@@ -6,7 +6,7 @@ import ChordOptions from '../ChordOptions/ChordOptions';
 import PlayControls from '../PlayControls/PlayControls';
 
 function Options(props) {
-  const { userOptions, setUserOptions, setScale, musicalKeysAvailable } = props;
+  const { userOptions, setUserOptions, musicalKeysAvailable } = props;
 
   const changeOptions = optionSelected => {
     setUserOptions(prevState => ({

@@ -2,6 +2,7 @@ import React from 'react';
 import Instrument from '../Instrument/Instrument';
 import Options from '../Options/Options';
 import { getScale, getChord } from '../../scripts/noteEngine';
+import { playNotes } from '../../scripts/synthEngine';
 
 function ChordsAndScales() {
   const [userOptions, setUserOptions] = React.useState({
@@ -39,6 +40,9 @@ function ChordsAndScales() {
     return template;
   };
 
+  // Play the current chord or scale
+  const playCurrentSelection = () => {};
+
   return (
     <div>
       Chords and Scales
@@ -46,6 +50,7 @@ function ChordsAndScales() {
         template={setTemplate()}
         userOptions={userOptions}
         musicalKeysAvailable={musicalKeysAvailable}
+        playNotes={playNotes}
       />
       <Options
         userOptions={userOptions}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { playNotes } from '../../scripts/synthEngine';
 import './Keyboard.css';
 
 function Keyboard(props) {
@@ -83,7 +82,10 @@ function Keyboard(props) {
           return (
             <div
               onClick={() =>
-                playNotes(key.note, key.octave + props.userOptions.baseOctave)
+                props.playNotes(
+                  key.note,
+                  key.octave + props.userOptions.baseOctave,
+                )
               }
               key={`key-normal-${key.id}`}
               className={key.keyClass}

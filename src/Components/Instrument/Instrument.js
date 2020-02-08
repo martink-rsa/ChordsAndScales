@@ -9,6 +9,7 @@ function Instrument(props) {
         template={props.template}
         userOptions={props.userOptions}
         musicalKeysAvailable={props.musicalKeysAvailable}
+        playNotes={props.playNotes}
       />
     </div>
   );
