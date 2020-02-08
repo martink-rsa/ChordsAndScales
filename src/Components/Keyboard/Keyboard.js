@@ -1,4 +1,5 @@
 import React from 'react';
+import { playNote } from '../../scripts/synthEngine';
 import './Keyboard.css';
 
 function Keyboard(props) {
@@ -31,6 +32,8 @@ function Keyboard(props) {
           style: 'normal',
           zIndex: 1,
           keyClass: 'keyboard-key-normal',
+          note: props.musicalKeysAvailable[i % 12].value,
+          octave: Math.floor(i / 12),
         });
         keysNormalCounter += 1;
       } else {
@@ -54,6 +57,8 @@ function Keyboard(props) {
           style: 'black',
           zIndex: 2,
           keyClass: 'keyboard-key-black',
+          note: props.musicalKeysAvailable[i % 12].value,
+          octave: Math.floor(i / 12),
         });
       }
     }
@@ -77,6 +82,9 @@ function Keyboard(props) {
         {generateKeys(75, 25, props.template).map(key => {
           return (
             <div
+              onClick={() =>
+                playNote(key.note, key.octave + props.userOptions.baseOctave)
+              }
               key={`key-normal-${key.id}`}
               className={key.keyClass}
               style={{

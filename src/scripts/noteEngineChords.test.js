@@ -12,7 +12,7 @@ describe('Get the correct Chords', () => {
       6,
       9,
     ]);
-    expect(getChord({ musicalKey: 'Fs', chord: 'maj' })).toStrictEqual([
+    expect(getChord({ musicalKey: 'F#', chord: 'maj' })).toStrictEqual([
       6,
       10,
       13,

@@ -5,7 +5,11 @@ import './instrument.css';
 function Instrument(props) {
   return (
     <div className="wrapper">
-      <Keyboard template={props.template} />
+      <Keyboard
+        template={props.template}
+        userOptions={props.userOptions}
+        musicalKeysAvailable={props.musicalKeysAvailable}
+      />
     </div>
   );
 }

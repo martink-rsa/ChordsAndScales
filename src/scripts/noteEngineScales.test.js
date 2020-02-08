@@ -14,7 +14,7 @@ describe('Get the correct Major Scales', () => {
     ]);
   });
   test('Gets the correct C# major scale', () => {
-    expect(getScale({ musicalKey: 'Cs', musicalScale: 'maj' })).toStrictEqual([
+    expect(getScale({ musicalKey: 'C#', musicalScale: 'maj' })).toStrictEqual([
       1,
       3,
       5,
@@ -38,7 +38,7 @@ describe('Get the correct Major Scales', () => {
     ]);
   });
   test('Gets the correct D# major scale', () => {
-    expect(getScale({ musicalKey: 'Ds', musicalScale: 'maj' })).toStrictEqual([
+    expect(getScale({ musicalKey: 'D#', musicalScale: 'maj' })).toStrictEqual([
       3,
       5,
       7,
@@ -74,7 +74,7 @@ describe('Get the correct Major Scales', () => {
     ]);
   });
   test('Gets the correct Fs major scale', () => {
-    expect(getScale({ musicalKey: 'Fs', musicalScale: 'maj' })).toStrictEqual([
+    expect(getScale({ musicalKey: 'F#', musicalScale: 'maj' })).toStrictEqual([
       6,
       8,
       10,
@@ -98,7 +98,7 @@ describe('Get the correct Major Scales', () => {
     ]);
   });
   test('Gets the correct Gs major scale', () => {
-    expect(getScale({ musicalKey: 'Gs', musicalScale: 'maj' })).toStrictEqual([
+    expect(getScale({ musicalKey: 'G#', musicalScale: 'maj' })).toStrictEqual([
       8,
       10,
       12,
@@ -122,7 +122,7 @@ describe('Get the correct Major Scales', () => {
     ]);
   });
   test('Gets the correct As major scale', () => {
-    expect(getScale({ musicalKey: 'As', musicalScale: 'maj' })).toStrictEqual([
+    expect(getScale({ musicalKey: 'A#', musicalScale: 'maj' })).toStrictEqual([
       10,
       12,
       14,
@@ -174,7 +174,7 @@ describe('Get the correct Minor Scales', () => {
     ]);
   });
   test('Gets the correct base F# Minor scale', () => {
-    expect(getScale({ musicalKey: 'Fs', musicalScale: 'min' })).toStrictEqual([
+    expect(getScale({ musicalKey: 'F#', musicalScale: 'min' })).toStrictEqual([
       6,
       8,
       9,
@@ -201,7 +201,7 @@ describe('Get the correct Blues Minor Scales', () => {
   });
   test('Gets the correct G# Blues Minor scale', () => {
     expect(
-      getScale({ musicalKey: 'Gs', musicalScale: 'bluesMin' }),
+      getScale({ musicalKey: 'G#', musicalScale: 'bluesMin' }),
     ).toStrictEqual([8, 11, 13, 14, 15, 18, 20]);
   });
 });
@@ -215,12 +215,12 @@ describe('Get the correct Blues Major Scales', () => {
   });
   test('Gets the correct D# Blues Major scale', () => {
     expect(
-      getScale({ musicalKey: 'Ds', musicalScale: 'bluesMaj' }),
+      getScale({ musicalKey: 'D#', musicalScale: 'bluesMaj' }),
     ).toStrictEqual([3, 5, 6, 7, 10, 12, 15]);
   });
   test('Gets the correct F# Blues Major scale', () => {
     expect(
-      getScale({ musicalKey: 'Fs', musicalScale: 'bluesMaj' }),
+      getScale({ musicalKey: 'F#', musicalScale: 'bluesMaj' }),
     ).toStrictEqual([6, 8, 9, 10, 13, 15, 18]);
   });
 });
@@ -283,7 +283,7 @@ describe('Get the correct Modes', () => {
   });
   test('Gets the correct G# Phrygian mode', () => {
     expect(
-      getScale({ musicalKey: 'Gs', musicalScale: 'phrygian' }),
+      getScale({ musicalKey: 'G#', musicalScale: 'phrygian' }),
     ).toStrictEqual([8, 9, 11, 13, 15, 16, 18, 20]);
   });
   test('Gets the correct C Lydian mode', () => {
@@ -323,7 +323,7 @@ describe('Get the correct Modes', () => {
   });
   test('Gets the correct A# Locrian mode', () => {
     expect(
-      getScale({ musicalKey: 'As', musicalScale: 'locrian' }),
+      getScale({ musicalKey: 'A#', musicalScale: 'locrian' }),
     ).toStrictEqual([10, 11, 13, 15, 16, 18, 20, 22]);
   });
 });
@@ -337,7 +337,7 @@ describe('Get the correct Major Pentatonic scales', () => {
   });
   test('Gets the correct D# Major Pentatonic scale', () => {
     expect(
-      getScale({ musicalKey: 'Ds', musicalScale: 'pentatonicMaj' }),
+      getScale({ musicalKey: 'D#', musicalScale: 'pentatonicMaj' }),
     ).toStrictEqual([3, 5, 7, 10, 12, 15]);
   });
 });
