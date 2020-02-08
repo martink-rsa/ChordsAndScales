@@ -5,11 +5,10 @@ import { getScale, getChord } from '../../scripts/noteEngine';
 
 function ChordsAndScales() {
   const [userOptions, setUserOptions] = React.useState({
-    optionSelected: 'scale',
+    optionSelected: 'chord',
     musicalKey: 'C',
     musicalScale: 'maj',
     chord: 'maj',
-    keysTemplate: [],
   });
 
   const musicalKeysAvailable = [
@@ -27,21 +26,13 @@ function ChordsAndScales() {
     { id: 11, value: 'B', text: 'B' },
   ];
 
+  // Set the keys that will be enabled on the keyboard
   const setTemplate = () => {
-    const {
-      optionSelected,
-      musicalKey,
-      musicalScale,
-      chord,
-      keysTemplate,
-    } = userOptions;
+    const { optionSelected, musicalKey, musicalScale, chord } = userOptions;
     let template = [];
-    console.log('setTemplate running:');
-    if (userOptions.optionSelected === 'scale') {
-      // template = getScale(musicalKey, musicalScale);
+    if (optionSelected === 'scale') {
       template = getScale({ musicalKey, musicalScale });
-    } else if (userOptions.optionSelected === 'chord') {
-      // Chord
+    } else if (optionSelected === 'chord') {
       template = getChord({ musicalKey, chord });
     }
     return template;

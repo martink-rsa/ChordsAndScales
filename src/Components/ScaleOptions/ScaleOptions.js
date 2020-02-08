@@ -35,6 +35,7 @@ function ScaleOptions(props) {
     { id: 12, value: 'mixolydian', text: 'Mixolydian' },
     { id: 13, value: 'aeolian', text: 'Aeolian' },
     { id: 14, value: 'locrian', text: 'Locrian' },
+    // Missing scales
     // { id: 1, value: 'melodicMinor', text: 'Melodic Minor' },
     // { id: 1, value: 'harmonicMinor', text: 'Harmonic Minor' },
   ];

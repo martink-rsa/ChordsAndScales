@@ -3,7 +3,7 @@ import SelectControl from '../SelectControl/SelectControl';
 
 function ChordOptions(props) {
   const { setUserOptions } = props;
-  const { musicalKey, musicalScale } = props.userOptions;
+  const { musicalKey, musicalScale, chord } = props.userOptions;
 
   const handleKeyChange = event => {
     setUserOptions(prevState => ({
@@ -43,7 +43,7 @@ function ChordOptions(props) {
       <SelectControl
         keyPrefix="cmc" // Chords Musical Chord
         handleChange={handleChordChange}
-        currentSelection={props.chord}
+        currentSelection={chord}
         selectItems={musicalChordsAvailable}
       />
     </div>
