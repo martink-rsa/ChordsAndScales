@@ -7,6 +7,7 @@ function Instrument(props) {
     <div className="wrapper">
       <Keyboard
         template={props.template}
+        templateActive={props.templateActive}
         userOptions={props.userOptions}
         musicalKeysAvailable={props.musicalKeysAvailable}
         playNotes={props.playNotes}

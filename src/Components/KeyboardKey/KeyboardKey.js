@@ -1,17 +1,11 @@
-import React from 'react';
-import {
-  createMuiTheme,
-  withStyles,
-  makeStyles,
-  ThemeProvider,
-} from '@material-ui/core/styles';
+import React, { useEffect } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
 import './KeyboardKey.css';
 
 function KeyboardKey(props) {
   const [keyState, setKeyState] = useState('normal');
-  console.log(props.details);
   const {
     id,
     gridColumnStart,
@@ -20,15 +14,24 @@ function KeyboardKey(props) {
     gridRowEnd,
     style,
     zIndex,
-    keyClass,
+    keyClass
   } = props.details;
 
-  let keyColor;
-  if (style === 'normal') {
-    keyColor = 'white';
-  } else {
-    keyColor = 'black';
-  }
+  useEffect(() => {
+    let background = '';
+    if (keyClass === 'active') {
+      background = 'green';
+    } else if (keyClass === 'enabled') {
+      background = 'red';
+    } else if (keyClass === 'normal') {
+      if (style === 'normal') {
+        background = 'white';
+      } else {
+        background = 'black';
+      }
+    }
+    setKeyState(background);
+  }, [keyClass, style]);
 
   const NoteButton = withStyles({
     root: {
@@ -43,8 +46,7 @@ function KeyboardKey(props) {
       boxShadow: 'none',
       textTransform: 'none',
       border: '1px solid',
-      backgroundColor: keyColor,
-      // backgroundColor: 'green',
+      backgroundColor: keyState,
       borderColor: 'black',
       fontFamily: [
         '-apple-system',
@@ -56,12 +58,12 @@ function KeyboardKey(props) {
         'sans-serif',
         '"Apple Color Emoji"',
         '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
+        '"Segoe UI Symbol"'
       ].join(','),
       '&:hover': {
         backgroundColor: '#0069d9',
         borderColor: 'black',
-        boxShadow: 'none',
+        boxShadow: 'none'
       },
       '&:active': {
         /* boxShadow: 'none',
@@ -70,25 +72,10 @@ function KeyboardKey(props) {
       },
       '&:focus': {
         /* boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)', */
-      },
-    },
+      }
+    }
   })(Button);
 
-  let customClass = '';
-  const getClass = () => {
-    console.log('getClass');
-    console.log(keyClass);
-    if (keyClass === 'normal') {
-      customClass = 'normal';
-    } else if (keyClass === 'enabled') {
-      customClass = 'enabled';
-    } else if (keyClass === 'active') {
-      customClass = 'active';
-    }
-    return customClass;
-  };
-
-  console.log(props.id);
   return (
     <NoteButton
       style={{
@@ -96,9 +83,9 @@ function KeyboardKey(props) {
         gridColumnEnd,
         gridRowStart,
         gridRowEnd,
-        zIndex,
+        zIndex
       }}
-      className={getClass()}
+      // className={keyState}
     >
       {id}
     </NoteButton>

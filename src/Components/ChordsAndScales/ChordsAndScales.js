@@ -2,7 +2,7 @@ import React from 'react';
 import Instrument from '../Instrument/Instrument';
 import Options from '../Options/Options';
 import { getScale, getChord } from '../../scripts/noteEngine';
-import { playNotes } from '../../scripts/synthEngine';
+import { playNotes, playChord } from '../../scripts/synthEngine';
 
 function ChordsAndScales() {
   const [userOptions, setUserOptions] = React.useState({
@@ -10,8 +10,11 @@ function ChordsAndScales() {
     musicalKey: 'C',
     musicalScale: 'maj',
     chord: 'maj',
-    baseOctave: 3,
+    baseOctave: 3
   });
+  // const [templateActive, setTemplateActive] = React.useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [templateActive, setTemplateActive] = React.useState([]);
 
   const musicalKeysAvailable = [
     { id: 0, value: 'C', text: 'C' },
@@ -25,7 +28,7 @@ function ChordsAndScales() {
     { id: 8, value: 'G#', text: 'G♯ / A♭' },
     { id: 9, value: 'A', text: 'A' },
     { id: 10, value: 'A#', text: 'A♯ / B♭' },
-    { id: 11, value: 'B', text: 'B' },
+    { id: 11, value: 'B', text: 'B' }
   ];
 
   // Set the keys that will be enabled on the keyboard
@@ -41,13 +44,29 @@ function ChordsAndScales() {
   };
 
   // Play the current chord or scale
-  const playCurrentSelection = () => {};
+  const playCurrentSelection = () => {
+    // eslint-disable-next-line no-unused-vars
+    const { optionSelected, musicalKey, musicalScale, chord } = userOptions;
+    if (optionSelected === 'scale') {
+      // play scales
+    } else if (optionSelected === 'chord') {
+      console.log('PLAY CHORD');
+      const currentChord = getChord({ musicalKey, chord });
+      const chordNotes = currentChord.map(note => {
+        const octave = userOptions.baseOctave + Math.floor(note / 12);
+        return `${musicalKeysAvailable[note].value}${octave}`;
+      });
+      console.log(chordNotes);
+      playChord(chordNotes);
+    }
+  };
 
   return (
     <div>
       Chords and Scales
       <Instrument
         template={setTemplate()}
+        templateActive={templateActive}
         userOptions={userOptions}
         musicalKeysAvailable={musicalKeysAvailable}
         playNotes={playNotes}
@@ -56,6 +75,7 @@ function ChordsAndScales() {
         userOptions={userOptions}
         setUserOptions={setUserOptions}
         musicalKeysAvailable={musicalKeysAvailable}
+        playCurrentSelection={playCurrentSelection}
       />
     </div>
   );

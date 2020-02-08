@@ -11,12 +11,12 @@ function Options(props) {
   const changeOptions = optionSelected => {
     setUserOptions(prevState => ({
       ...prevState,
-      optionSelected,
+      optionSelected
     }));
   };
   return (
     <div>
-      <PlayControls />
+      <PlayControls playCurrentSelection={props.playCurrentSelection} />
       {userOptions.optionSelected === 'chord' ? (
         <ButtonGroup color="primary" aria-label="chord options group">
           <Button disabled>Chords</Button>

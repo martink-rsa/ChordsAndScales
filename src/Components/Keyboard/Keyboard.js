@@ -3,9 +3,10 @@ import './Keyboard.css';
 import KeyboardKey from '../KeyboardKey/KeyboardKey';
 
 function Keyboard(props) {
+  const { templateActive } = props;
   // Keyboard index layout
-  //  1 3   6 8 10   14 16    19 21 23
-  // 0 2 4 5 7 9 11 13 15 17 18 20 22 24 25
+  //  1 3   6 8 10   13 15    18 20 22
+  // 0 2 4 5 7 9 11 12 14 16 17 19 21 23 24
   const generateKeys = (totalColumns, totalKeys, template) => {
     // Previously had cleaner code by basing everything off a number of
     //    of normal keys and just looping through this number, then adding
@@ -19,8 +20,6 @@ function Keyboard(props) {
     const amtNormalKeys = totalKeys - keysBlack.length; // No. normal keys
     const widthNormalKey = totalColumns / amtNormalKeys; // Width of normal keys
     let keysNormalCounter = 0; // Used for calculating beginning position
-
-    const templateActive = [2];
 
     for (let i = 0; i < totalKeys; i += 1) {
       if (!keysBlack.includes(i)) {
@@ -36,7 +35,7 @@ function Keyboard(props) {
           zIndex: 1,
           keyClass: 'normal',
           note: props.musicalKeysAvailable[i % 12].value,
-          octave: Math.floor(i / 12),
+          octave: Math.floor(i / 12)
         });
         keysNormalCounter += 1;
       } else {
@@ -61,7 +60,7 @@ function Keyboard(props) {
           zIndex: 2,
           keyClass: 'normal',
           note: props.musicalKeysAvailable[i % 12].value,
-          octave: Math.floor(i / 12),
+          octave: Math.floor(i / 12)
         });
       }
     }
@@ -72,7 +71,7 @@ function Keyboard(props) {
 
     // Change the template keys to active
     for (let i = 0; i < templateActive.length; i += 1) {
-      keys[template[i]].keyClass = 'active';
+      keys[templateActive[i]].keyClass = 'active';
     }
     // Set no border on the last key
     /* keys[keys.length - 1].keyClass =
