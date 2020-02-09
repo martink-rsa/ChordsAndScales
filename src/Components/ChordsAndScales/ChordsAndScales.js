@@ -10,7 +10,7 @@ function ChordsAndScales() {
     musicalKey: 'C',
     musicalScale: 'maj',
     chord: 'maj',
-    baseOctave: 3,
+    baseOctave: 3
   });
   // const [templateActive, setTemplateActive] = React.useState([]);
   // eslint-disable-next-line no-unused-vars
@@ -28,7 +28,7 @@ function ChordsAndScales() {
     { id: 8, value: 'G#', text: 'G♯ / A♭' },
     { id: 9, value: 'A', text: 'A' },
     { id: 10, value: 'A#', text: 'A♯ / B♭' },
-    { id: 11, value: 'B', text: 'B' },
+    { id: 11, value: 'B', text: 'B' }
   ];
 
   // Set the keys that will be enabled on the keyboard
@@ -48,7 +48,16 @@ function ChordsAndScales() {
     // eslint-disable-next-line no-unused-vars
     const { optionSelected, musicalKey, musicalScale, chord } = userOptions;
     if (optionSelected === 'scale') {
-      // play scales
+      let playCount = 0;
+      const scale = getScale({ musicalKey, musicalScale });
+      const timer = setInterval(() => {
+        console.log('timer: ' + playCount);
+        playNotes();
+        playCount += 1;
+        if (playCount >= 5) {
+          clearTimeout(timer);
+        }
+      }, 1000);
     } else if (optionSelected === 'chord') {
       console.log('PLAY CHORD');
       const currentChord = getChord({ musicalKey, chord });

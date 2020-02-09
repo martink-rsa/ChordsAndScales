@@ -7,9 +7,10 @@ const polySynth = new Tone.PolySynth(Tone.Synth, {
   volume: -6
 }).toMaster();
 
-function playNotes(note = 'C4', octave = 2, duration = '8n') {
+function playNotes(note = 'C', octave = 2, duration = '8n') {
   polySynth.triggerAttackRelease(`${note}${octave}`, duration);
 }
+
 function playChord(chord) {
   console.log(chord);
   polySynth.triggerAttackRelease(chord, '8n');
