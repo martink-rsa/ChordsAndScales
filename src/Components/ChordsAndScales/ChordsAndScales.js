@@ -10,11 +10,11 @@ function ChordsAndScales() {
     musicalKey: 'C',
     musicalScale: 'maj',
     chord: 'maj',
-    baseOctave: 3
+    baseOctave: 3,
   });
   // const [templateActive, setTemplateActive] = React.useState([]);
-  // eslint-disable-next-line no-unused-vars
   const [templateActive, setTemplateActive] = React.useState([]);
+  const [scaleTimer, setScaleTimer] = React.useState([]);
 
   const musicalKeysAvailable = [
     { id: 0, value: 'C', text: 'C' },
@@ -28,7 +28,7 @@ function ChordsAndScales() {
     { id: 8, value: 'G#', text: 'G♯ / A♭' },
     { id: 9, value: 'A', text: 'A' },
     { id: 10, value: 'A#', text: 'A♯ / B♭' },
-    { id: 11, value: 'B', text: 'B' }
+    { id: 11, value: 'B', text: 'B' },
   ];
 
   // Set the keys that will be enabled on the keyboard
@@ -45,28 +45,32 @@ function ChordsAndScales() {
 
   // Play the current chord or scale
   const playCurrentSelection = () => {
-    // eslint-disable-next-line no-unused-vars
     const { optionSelected, musicalKey, musicalScale, chord } = userOptions;
     if (optionSelected === 'scale') {
-      let playCount = 0;
+      clearTimeout(scaleTimer);
+      let index = 0;
       const scale = getScale({ musicalKey, musicalScale });
       const timer = setInterval(() => {
-        console.log('timer: ' + playCount);
-        playNotes();
-        playCount += 1;
-        if (playCount >= 5) {
+        setTemplateActive([scale[index]]);
+        const note = scale[index];
+        const noteInRange = note % 12;
+        const noteToPlay = musicalKeysAvailable[noteInRange].value;
+        const octave = userOptions.baseOctave + Math.floor(note / 12);
+        playNotes(noteToPlay, octave, '8n');
+        index += 1;
+        if (index >= scale.length) {
           clearTimeout(timer);
+          setTimeout(() => setTemplateActive([]), 500);
         }
-      }, 1000);
+      }, 500);
+      setScaleTimer(timer);
     } else if (optionSelected === 'chord') {
-      console.log('PLAY CHORD');
       const currentChord = getChord({ musicalKey, chord });
       const chordNotes = currentChord.map(note => {
         const noteInRange = note % 12;
         const octave = userOptions.baseOctave + Math.floor(note / 12);
         return `${musicalKeysAvailable[noteInRange].value}${octave}`;
       });
-      console.log(chordNotes);
       playChord(chordNotes);
     }
   };
