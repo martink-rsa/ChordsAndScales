@@ -35,7 +35,7 @@ function Keyboard(props) {
           zIndex: 1,
           keyClass: 'normal',
           note: props.musicalKeysAvailable[i % 12].value,
-          octave: Math.floor(i / 12)
+          octave: Math.floor(i / 12),
         });
         keysNormalCounter += 1;
       } else {
@@ -60,7 +60,7 @@ function Keyboard(props) {
           zIndex: 2,
           keyClass: 'normal',
           note: props.musicalKeysAvailable[i % 12].value,
-          octave: Math.floor(i / 12)
+          octave: Math.floor(i / 12),
         });
       }
     }
@@ -85,29 +85,6 @@ function Keyboard(props) {
         {generateKeys(75, 25, props.template).map(key => {
           return <KeyboardKey key={`kbk${key.id}`} details={key} />;
         })}
-        {/*         {generateKeys(75, 25, props.template).map(key => {
-          return (
-            <div
-              onClick={() =>
-                props.playNotes(
-                  key.note,
-                  key.octave + props.userOptions.baseOctave,
-                )
-              }
-              key={`key-normal-${key.id}`}
-              className={key.keyClass}
-              style={{
-                gridColumnStart: key.gridColumnStart,
-                gridColumnEnd: key.gridColumnEnd,
-                gridRowStart: key.gridRowStart,
-                gridRowEnd: key.gridRowEnd,
-                zIndex: key.zIndex,
-              }}
-            >
-              {null}
-            </div>
-          );
-        })} */}
       </div>
     </div>
   );

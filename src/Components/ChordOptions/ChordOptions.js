@@ -25,11 +25,11 @@ function ChordOptions(props) {
     { id: 2, value: 'aug', text: 'Augmented' },
     { id: 3, value: 'dim', text: 'Diminished' },
     { id: 4, value: 'dim7', text: 'Diminished 7' },
-    { id: 5, value: 'dim75', text: 'Diminished 7-5' },
-    { id: 6, value: 'min75', text: 'Minor 7-5' },
-    { id: 7, value: 'min7', text: 'Minor 7' },
-    { id: 8, value: 'maj75', text: 'Major 7-5' },
-    { id: 9, value: 'maj7', text: 'Major 7' },
+    { id: 5, value: 'min75', text: 'Minor 7-5' },
+    { id: 6, value: 'min7', text: 'Minor 7' },
+    { id: 7, value: 'maj75', text: 'Major 7-5' },
+    { id: 8, value: 'maj7', text: 'Major 7' },
+    // { id: 5, value: 'dim75', text: 'Diminished 7-5' },
   ];
 
   return (
