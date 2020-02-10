@@ -47,6 +47,7 @@ function ChordsAndScales() {
   const playCurrentSelection = () => {
     const { optionSelected, musicalKey, musicalScale, chord } = userOptions;
     if (optionSelected === 'scale') {
+      const interval = 300;
       clearTimeout(scaleTimer);
       let index = 0;
       const scale = getScale({ musicalKey, musicalScale });
@@ -60,9 +61,9 @@ function ChordsAndScales() {
         index += 1;
         if (index >= scale.length) {
           clearTimeout(timer);
-          setTimeout(() => setTemplateActive([]), 500);
+          setTimeout(() => setTemplateActive([]), interval);
         }
-      }, 500);
+      }, interval);
       setScaleTimer(timer);
     } else if (optionSelected === 'chord') {
       const currentChord = getChord({ musicalKey, chord });
